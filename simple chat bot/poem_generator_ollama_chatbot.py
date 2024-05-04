@@ -12,9 +12,9 @@ os.environ["LANGCHAIN_API_KEY"]=os.getenv("langchain_key")
 
 
 
-promtp= ChatPromptTemplate(
+promtp= ChatPromptTemplate.from_messages(
     [
-        ("system", "write a 2 line poem on topic given by the user"),
+        ("system", "write a 10 line poem on topic given by the user"),
         ("user","Topic:{topic}")
     ]
 )

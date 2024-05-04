@@ -14,15 +14,23 @@ app = FastAPI(
     description="simple api"
 )
 
-llm = Ollama(model="llama2")
+llm = Ollama(model="llama2" , temperature = 0.6)
 
 prompt1= ChatPromptTemplate.from_template("write a essay on {topic} in 100 word")
+
+prompt2= ChatPromptTemplate.from_template("write a joke on {topic}  ")
 
 
 add_routes(
     app,
     prompt1|llm,
     path= "/essay"
+)
+
+add_routes(
+    app,
+    prompt2|llm,
+    path= "/jock"
 )
 
 if __name__=="__main__":
